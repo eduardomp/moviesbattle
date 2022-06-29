@@ -22,14 +22,23 @@ public class Filme {
     @Id
     private Integer id;
 
-    private String idImdb;
+    private String IMDBId;
 
     private String nome;
 
-    private Integer votos;
+    private Double votos;
 
     private Double nota;
 
+    @Setter(AccessLevel.NONE)
     private Double pontuacao;
+
+    public Double getPontuacao(){
+        if(this.votos != null && this.nota != null){
+            this.pontuacao = this.votos * this.nota;
+            return this.pontuacao;
+        }
+        return 0.0;
+    }
 
 }
