@@ -7,6 +7,8 @@ import com.example.moviesbattle.repository.PartidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PartidaService {
 
@@ -25,5 +27,11 @@ public class PartidaService {
         return saved;
 
     }
+    public boolean isPartidaIniciada(Integer idPartida){
+        Optional<Partida> partidaOptional = this.partidaRepository.findById(idPartida);
+        return partidaOptional.get().getPartidaStatus().equals(PartidaStatus.INICIADA);
+    }
+
+
 
 }

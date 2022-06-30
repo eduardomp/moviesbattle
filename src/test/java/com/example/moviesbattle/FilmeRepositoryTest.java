@@ -21,7 +21,7 @@ public class FilmeRepositoryTest {
 
     @BeforeEach
     void init() {
-        Filme filme = new Filme(1,"112233AA","Pulp Fiction",new Double("1000000"), new Double("8.1"),null);
+        Filme filme = new Filme(1,"112233AA","Pulp Fiction",Double.parseDouble("1000000"), Double.parseDouble("8.1"),null);
         filmeRepository.save(filme);
     }
 
@@ -32,10 +32,10 @@ public class FilmeRepositoryTest {
 
     @Test
     void save_success(){
-        Filme filme = new Filme(2,"223344BB","Sonic 2",new Double("1000000"), new Double("7.5"),null);
+        Filme filme = new Filme(2,"223344BB","Sonic 2",Double.parseDouble("1000000"), Double.parseDouble("7.5"),null);
         Filme saved = filmeRepository.save(filme);
         assertThat(saved.getId()).isEqualTo(2);
-        assertThat(saved.getPontuacao()).isEqualTo(new Double("7500000"));
+        assertThat(saved.getPontuacao()).isEqualTo(Double.parseDouble("7500000"));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class FilmeRepositoryTest {
     @Test
     void pontuacao_success(){
         Filme filme = filmeRepository.findByIMDBId("112233AA");
-        assertThat(filme.getPontuacao()).isEqualTo(new Double("8100000"));
+        assertThat(filme.getPontuacao()).isEqualTo(Double.parseDouble("8100000"));
     }
 
 }
