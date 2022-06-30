@@ -41,4 +41,6 @@ public class Partida {
 
     private int pontuacao;
 
+    private int quantidadeErros;
+
 }
