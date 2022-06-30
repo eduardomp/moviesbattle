@@ -20,12 +20,21 @@ public class Par {
     private Integer id;
 
     @ManyToOne(targetEntity = Filme.class)
-    private Integer idFilmeA;
+    private Filme filmeA;
 
     @ManyToOne(targetEntity = Filme.class)
-    private Integer idFilmeB;
+    private Filme filmeB;
 
+    @Setter(AccessLevel.NONE)
     private String resposta;
+
+    public String getResposta(){
+        if(this.filmeA.getPontuacao() > this.getFilmeB().getPontuacao()){
+            return "A";
+        }
+        return "B";
+    }
+
 
 
 }
